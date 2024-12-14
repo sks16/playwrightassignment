@@ -1,28 +1,22 @@
+# .gitpod.yml
+
 image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: |
-     sudo apt-get update && sudo apt-get install -y \
-        libwoff1 \
-        libopus0 \
-        libvpx7 \
-        libgstreamer1.0-0 \
-        libgstreamer-plugins-base1.0-0 \
-        libflite1 \
-        libharfbuzz-icu0 \
-        libenchant-2-2 \
-        libsecret-1-0 \
-        libhyphen0 \
-        libmanette-0.2-0 \
-        libgles2 \
-        libx264-160
+  - name: Install and Run Playwright
+    init: |
+      npm install -D @playwright/test
       npx playwright install-deps
+      npx playwright install
     command: npx playwright test
 ports:
+  # VNC Server port for debugging
   - port: 5900
     onOpen: ignore
+  # NoVNC server to access browser UI in Gitpod
   - port: 6080
     onOpen: open-browser
+  # Additional port for debugging or custom services
   - port: 10000
     onOpen: ignore
