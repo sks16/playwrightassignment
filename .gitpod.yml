@@ -1,4 +1,7 @@
 # .gitpod.yml
+image:
+  file: .gitpod.Dockerfile
+  
 tasks:
     init: |
       npm init playwright@latest
