@@ -1,11 +1,13 @@
 # .gitpod.yml
 tasks:
-  - name: Install Playwright and dependencies
     init: |
-      npm install -D @playwright/test
-      npx playwright install
+      npm init playwright@latest
     command: |
       npx playwright test
 ports:
-  - port: 9323
+  - port: 5900
+    onOpen: ignore
+  - port: 6080
+    onOpen: open-browser
+  - port: 10000
     onOpen: ignore
