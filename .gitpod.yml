@@ -3,7 +3,8 @@ image:
 
 tasks:
   - init: |
-      npm init playwright@latest
+      npm install -D @playwright/test
+      npx playwright install
     command: npx playwright test
 ports:
   - port: 5900
