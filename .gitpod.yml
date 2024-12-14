@@ -1,22 +1,16 @@
-# .gitpod.yml
-
 image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Install and Run Playwright
-    init: |
-      npm install -D @playwright/test
-      npx playwright install-deps
+  - init: |
       npx playwright install
+      npx playwright install-deps
+      npm ci
     command: npx playwright test
 ports:
-  # VNC Server port for debugging
   - port: 5900
     onOpen: ignore
-  # NoVNC server to access browser UI in Gitpod
   - port: 6080
     onOpen: open-browser
-  # Additional port for debugging or custom services
   - port: 10000
     onOpen: ignore
