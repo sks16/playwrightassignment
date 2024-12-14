@@ -1,12 +1,10 @@
-# .gitpod.yml
 image:
   file: .gitpod.Dockerfile
-  
+
 tasks:
-    init: |
+  - init: |
       npm init playwright@latest
-    command: |
-      npx playwright test
+    command: npx playwright test
 ports:
   - port: 5900
     onOpen: ignore
