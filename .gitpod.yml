@@ -3,8 +3,6 @@ image:
 
 tasks:
   - init: |
-      npx playwright install
-      npx playwright install-deps
       npm ci
     command: npx playwright test
 ports:
