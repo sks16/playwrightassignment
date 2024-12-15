@@ -1,0 +1,17 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      npm ci
+      npx playwright install
+      npx playwright install-deps
+      
+    command: npx playwright test
+ports:
+  - port: 5900
+    onOpen: ignore
+  - port: 6080
+    onOpen: open-browser
+  - port: 10000
+    onOpen: ignore
