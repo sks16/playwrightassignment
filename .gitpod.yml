@@ -3,9 +3,9 @@ image:
 
 tasks:
   - init: |
-      npm ci
       npx playwright install --yes
       npx playwright install-deps
+      npm ci
     command: npx playwright test
 ports:
   - port: 5900
